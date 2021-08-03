@@ -1,0 +1,46 @@
+.promotions {
+  padding-bottom: 3rem;
+
+  &__title {
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  &__box {
+    display: flex;
+    align-items: flex-start;
+    grid-gap: 3rem;
+  }
+
+  &__img {
+    display: block;
+    margin-bottom: 1.5rem;
+
+    & img {
+      width: 100%;
+    }
+  }
+}
+
+.promotions__article {
+  max-width: 400px;
+  min-width: 250px;
+  font-size: 1.6rem;
+  color: $colorText;
+
+  & h4 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    & a {
+      color: $colorText;
+      &:hover {
+        color: $colorBtn;
+      }
+    }
+  }
+
+  &__date {
+
+  }
+}

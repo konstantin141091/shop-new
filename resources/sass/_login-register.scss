@@ -1,0 +1,76 @@
+.login__group-phone {
+  position: relative;
+}
+.login-phone-7 {
+  position: absolute;
+  top: 38.4px;
+  left: 9px;
+  font-size: 16px;
+}
+.login {
+  &__title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #333333;
+    margin: 16px 0;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  &__label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  &__input {
+    border: solid 1px #cccccc;
+    border-radius: 5px;
+    color: #333333;
+    padding: 6px 10px;
+    line-height: 24px;
+    background-color: #ffffff;
+    font-size: 16px;
+  }
+  &__input-phone {
+    padding-left: 28px;
+
+  }
+  &__button {
+    color: #ffffff;
+    padding: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    border: solid 1px #cccccc;
+    border-radius: 10px;
+    margin-right: 15px;
+  }
+  &__href {
+    color: #B63334;
+    font-size: 16px;
+    margin-right: 15px;
+  }
+  &__href:last-child {
+    margin-right: 0;
+  }
+  &__validate {
+    margin-top: 5px;
+  }
+  &__checkPassword {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    & label {
+      font-size: 20px;
+      font-weight: 400;
+      margin-left: 15px;
+    }
+  }
+}

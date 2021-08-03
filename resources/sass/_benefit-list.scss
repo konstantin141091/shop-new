@@ -1,0 +1,28 @@
+.benefit-list {
+  padding-bottom: 3rem;
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    grid-gap: 1rem;
+  }
+}
+
+.benefit-list__article {
+  max-width: 300px;
+  font-size: 2.2rem;
+  text-align: center;
+  color: $colorText;
+
+  & h4 {
+    margin-bottom: 15px;
+    font-size: 2.4rem;
+  }
+}
