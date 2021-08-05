@@ -38,8 +38,8 @@
   import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
   import {mapActions} from "vuex/dist/vuex.mjs";
 
-  import ProductCardComponent from './ProductCardComponent'
-  import Notification from './Notification'
+  import ProductCardComponent from '../ProductCardComponent'
+  import Notification from '../Notification'
   export default {
     name: "NewArrivalComponent",
     components: { VueSlickCarousel, ProductCardComponent, Notification },

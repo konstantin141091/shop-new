@@ -133,7 +133,7 @@
                 <div class="footer__top">
                     <div class="footer__area-menu container">
                         <div class="footer-menu__item">
-                            <div class=footer-"menu__title">
+                            <div class="footer-menu__title">
                                 <p>О магазине</p>
                                 <button>
                                     <span class="material-icons">keyboard_arrow_down</span>

@@ -29,6 +29,11 @@
   }
 
   & textarea {
+    background: #f7f7f7;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 6px 10px;
     height: 115px;
     resize: none;
   }
@@ -76,6 +81,8 @@
   height: 50px;
 }
 
-.agree__label {
-
+#agree_rules {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 5px;
 }

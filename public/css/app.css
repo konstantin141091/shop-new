@@ -496,7 +496,6 @@ h6 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  grid-gap: 1rem;
 }
 
 .benefit-list__article {
@@ -509,6 +508,10 @@ h6 {
 .benefit-list__article h4 {
   margin-bottom: 15px;
   font-size: 2.4rem;
+}
+
+.benefit-list__article + .benefit-list__article {
+  margin-left: 10px;
 }
 
 .promotions {
@@ -588,6 +591,11 @@ h6 {
 }
 
 .feedback__field textarea {
+  background: #f7f7f7;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 6px 10px;
   height: 115px;
   resize: none;
 }
@@ -636,6 +644,12 @@ h6 {
 
 .feedback__btn {
   height: 50px;
+}
+
+#agree_rules {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 5px;
 }
 
 .select {
@@ -829,6 +843,57 @@ h6 {
 .validate__message {
   color: #f10f0f;
   font-size: 18px;
+}
+
+.promo {
+  margin-bottom: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.promo-info {
+  background: no-repeat 50% 50%/cover;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.promo-info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.promo-info h1 {
+  font-size: 42px;
+  margin-bottom: 36px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.promo-info p {
+  font-size: 20px;
+  margin-bottom: 36px;
+  max-height: 29%;
+  max-width: 60%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.promo-btn {
+  padding: 15px 50px;
+  border-radius: 5px;
+  z-index: 2;
 }
 
 .cart__title {
@@ -1118,5 +1183,36 @@ h6 {
 
 .breadcrumb-item .router-link-active:hover {
   color: #b63334;
+}
+
+/* -------- button ----------- */
+
+.button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  place-content: center;
+  place-items: center;
+  min-width: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #ffffff;
+  border-radius: 5px;
+  white-space: nowrap;
+  background: #b63334;
+  outline: none;
+}
+
+.button:hover {
+  background: linear-gradient(180deg, #CE2424 45.31%, #BB1717 100%);
+}
+
+.button:active {
+  background: linear-gradient(180deg, #BB1717 100%, #CE2424 45.31%);
 }
 
