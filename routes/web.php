@@ -23,6 +23,7 @@ Route::get('/contacts', 'IndexController@contacts')->name('contacts');
 Route::get('/delivery', 'IndexController@delivery')->name('delivery');
 Route::get('/return_policy', 'IndexController@returnPolicy')->name('return_policy');
 Route::get('/use_agreement', 'IndexController@useAgreement')->name('use_agreement');
+Route::get('/cart', 'IndexController@cart')->name('cart');
 
 //for categories
 Route::group([
@@ -41,4 +42,12 @@ Route::group([
     Route::get('/', 'ProductController@index')->name('index');
     Route::get('/{product}', 'ProductController@show')->name('show');
     Route::get('/search/value', 'ProductController@search')->name('search');
+});
+
+//for order
+Route::group([
+    'prefix' => 'order',
+    'as' => 'order.'
+], function () {
+    Route::get('/', 'OrderController@index')->name('index');
 });

@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export default {
   // namespaced: true,
   state: {
@@ -12,7 +10,7 @@ export default {
     },
     CART_TOTAL_PRICE: state => {
       return state.CART.reduce((total, product) => {
-        return Math.floor((total + product.quantity * product.offers_price) * 100) / 100;
+        return Math.floor((total + product.quantity * product.price) * 100) / 100;
       }, 0)
     },
     CART_TOTAL_QUANTITY: state => {
@@ -29,61 +27,62 @@ export default {
     SAVE_CART: (state) => {
       localStorage.setItem('cart', JSON.stringify(state.CART))
     },
-
-    INCREMENT: (state, data) => {
-      const cartItem = state.CART.find(item => item.offers_id === data.offers_id && item.offers_price === data.offers_price);
-      cartItem.quantity = data.quantity;
-      cartItem.total = Math.floor((cartItem.quantity * cartItem.offers_price) * 100) / 100;
+    INCREMENT_PRODUCT: (state, id) => {
+      const cartItem = state.CART.find(item => item.id === id);
+      cartItem.quantity++;
+      cartItem.total = Math.floor((cartItem.quantity * cartItem.price) * 100) / 100;
     },
-    DELETE_ALL_CART: (state) => {
-      state.cart = [];
+    DECREMENT_PRODUCT: (state, id) => {
+      const cartItem = state.CART.find(item => item.id === id);
+      cartItem.quantity--;
+      cartItem.total = Math.floor((cartItem.quantity * cartItem.price) * 100) / 100;
     },
-    DELETE_FROM_CART_INDEX: (state, index) => {
+    INCREMENT_PRODUCT_INDEX: (state, index) => {
+      state.CART[index].quantity++;
+      state.CART[index].total = Math.floor((state.CART[index].quantity * state.CART[index].price) * 100) / 100;
+    },
+    DECREMENT_PRODUCT_INDEX: (state, index) => {
+      state.CART[index].quantity--;
+      state.CART[index].total = Math.floor((state.CART[index].quantity * state.CART[index].price) * 100) / 100;
+    },
+    DELETE_FROM_CART: (state, index) => {
       state.CART.splice(index, 1);
     },
-    INCREMENT_INDEX: (state, index) => {
-      state.CART[index].quantity++;
-    },
-    DECREMENT_INDEX: (state, index) => {
-      state.CART[index].quantity--;
-    }
+
+    // DELETE_ALL_CART: (state) => {
+    //   state.cart = [];
+    // },
   },
 
   actions: {
-    ADD_TO_CART: ({commit, state}, data) => {
-      // console.log(data);
-      const cartItem = state.CART.find(item => item.offers_id === data.product.offers_id && item.offers_price === data.product.offers_price);
+    ADD_TO_CART: ({commit, state}, product) => {
+      const cartItem = state.CART.find(item => item.id === product.id);
       if (!cartItem) {
-        let product = data.product;
-        // console.log(product);
-        product.quantity = data.countQuantity;
-        product.total = Math.floor((product.quantity * product.offers_price) * 100) / 100;
+        product.quantity = 1;
+        product.total = Math.floor((product.quantity * product.price) * 100) / 100;
         commit('PUSH_PRODUCT_TO_CART', product)
       } else {
-        let increment = {
-          offers_id: cartItem.offers_id,
-          offers_price: cartItem.offers_price,
-          quantity: data.countQuantity,
-        };
-        commit('INCREMENT', increment)
+        commit('INCREMENT_PRODUCT', product.id)
       }
       commit('SAVE_CART')
     },
 
-    ACTION_INCREMENT_INDEX: ({commit}, index) => {
-      commit('INCREMENT_INDEX', index);
+    INCREMENT_TO_PRODUCT_INDEX: ({commit}, index) => {
+      commit('INCREMENT_PRODUCT_INDEX', index);
       commit('SAVE_CART');
     },
-    ACTION_DECREMENT_INDEX: ({commit, state}, index) => {
+    DECREMENT_TO_PRODUCT_INDEX: ({commit, state}, index) => {
       if(state.CART[index].quantity > 1) {
-        commit('DECREMENT_INDEX', index);
+        commit('DECREMENT_PRODUCT_INDEX', index);
       } else {
-        commit('DELETE_FROM_CART_INDEX', index);
+        commit('DELETE_FROM_CART', index);
       }
       commit('SAVE_CART');
     },
-    ACTION_DELETE_FROM_CART_INDEX: ({commit}, index) => {
-      commit('DELETE_FROM_CART_INDEX', index);
+
+
+    DELETE_FROM_CART_INDEX: ({commit}, index) => {
+      commit('DELETE_FROM_CART', index);
       commit('SAVE_CART');
     },
 
@@ -99,9 +98,9 @@ export default {
     //   return answer;
     // },
 
-    CLEAR_ALL_CART: ({state}) => {
-      localStorage.clear();
-      state.CART = [];
-    },
+    // CLEAR_ALL_CART: ({state}) => {
+    //   localStorage.clear();
+    //   state.CART = [];
+    // },
   }
 }

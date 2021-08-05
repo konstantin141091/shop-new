@@ -107,7 +107,7 @@
                                     <img src="{{ asset('/storage/icons/person_black.svg') }}" alt="аккаунт">
                                 </a>
                             @endauth
-                            <header-cart-component :mobile="0"></header-cart-component>
+                            <header-cart-component :mobile="0" :url="'{{ route('cart') }}'"></header-cart-component>
                         </div>
                     </div>
                 </header>
@@ -122,7 +122,7 @@
                         </a>
                     </div>
                     <div class="header__controls">
-                        <header-cart-component :mobile="1"></header-cart-component>
+                        <header-cart-component :mobile="1" :url="'{{ route('cart') }}'"></header-cart-component>
                     </div>
                 </header>
             </div>

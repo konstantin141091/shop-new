@@ -35,4 +35,8 @@ class IndexController extends Controller
     public function useAgreement() {
         return $this->returnView('pages.use_agreement');
     }
+
+    public function cart() {
+        return $this->returnView('pages.cart');
+    }
 }

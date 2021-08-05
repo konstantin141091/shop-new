@@ -831,6 +831,109 @@ h6 {
   font-size: 18px;
 }
 
+.cart__title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.cart__flex {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cart__list {
+  flex-grow: 1;
+  margin-right: 3rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.cart-item__img {
+  margin-right: 3rem;
+}
+
+.cart-item__img img {
+  width: 100px;
+}
+
+.cart-item__title {
+  flex-grow: 1;
+}
+
+.cart-item__description {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-item__name {
+  font-size: 24px;
+  color: #333333;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.cart-item__control {
+  display: flex;
+  align-items: center;
+}
+
+.field-control {
+  width: 40%;
+  margin-left: 3rem;
+}
+
+.field-control__btn {
+  width: 25px;
+  height: 25px;
+}
+
+.field-control__quantity {
+  display: flex;
+  align-items: center;
+}
+
+.field-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.field-control__input {
+  border: 1px solid #f7f7f7;
+  width: 30px;
+  text-align: center;
+  height: 25px;
+  padding: 0 3px;
+}
+
+.field-control__total {
+  margin-left: 3rem;
+}
+
+.field-control__del {
+  margin-left: 3rem;
+}
+
+.field-control__del button {
+  background: #808080;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.field-control__del button:hover {
+  background: red;
+}
+
 * {
   margin: 0;
   padding: 0;

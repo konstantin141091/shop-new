@@ -1,18 +1,11 @@
 <template>
-    <a href="/">
+    <a :href="url">
         <span class="header__cart">
             <img src="/storage/icons/shopping_cart_black.svg" alt="корзина">
             <span class="header__cart-badge">{{ CART.length }}</span>
         </span>
-        <span v-show="!mobile" class="header__cart-text">{{ TOTAL_PRICE_CART }}&nbsp;руб</span>
+        <span v-show="!mobile" class="header__cart-text">{{ CART_TOTAL_PRICE }}&nbsp;руб</span>
     </a>
-
-<!--    <a href="/">-->
-<!--                                <span class="header__cart">-->
-<!--                                    <img src="{{ asset('/storage/icons/shopping_cart_black.svg') }}" alt="корзина">-->
-<!--                                    <span class="header__cart-badge">5</span>-->
-<!--                                </span>-->
-<!--    </a>-->
 </template>
 
 <script>
@@ -22,11 +15,15 @@
     props: {
       mobile: {
         required: true,
+      },
+      url: {
+        required: true,
+        type: String,
       }
     },
     computed: {
       ...mapGetters([
-        'CART', 'TOTAL_PRICE_CART'
+        'CART', 'CART_TOTAL_PRICE'
       ]),
     }
   }
