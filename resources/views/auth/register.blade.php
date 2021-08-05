@@ -1,77 +1,71 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+    <div class="container">
+        <h1 class="login__title">Регистрация</h1>
+        <form action="{{ route('register') }}" method="POST" class="login__form">
+            @csrf
+            <div class="login__group">
+                <label for="name" class="login__label">Имя</label>
+                <input type="text" name="name" id="name" class="login__input" value="{{ old('name') }}" placeholder="Имя">
+                    @if($errors->has('name'))
+                    <div class="login__validate">
+                        @foreach($errors->get('name') as $err)
+                            <div class="validate">
+                                <p class="validate__message">{{ $err }}</p>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        @endforeach
+                    </div>
+                    @endif
             </div>
-        </div>
+            <div class="login__group">
+                <label for="email" class="login__label">Email</label>
+                <input type="email" name="email" id="email" class="login__input" value="{{ old('email') }}" placeholder="Email">
+                @if($errors->has('email'))
+                    <div class="login__validate">
+                        @foreach($errors->get('email') as $err)
+                            <div class="validate">
+                                <p class="validate__message">{{ $err }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+            <div class="login__group login__group-phone">
+                <label for="phone" class="login__label">Телефон</label>
+                <span class="login-phone-7">+7</span>
+                <input type="tel" name="phone" id="phone" class="login__input login__input-phone" value="{{ old('phone') }}" placeholder="9225663344">
+                @if($errors->has('phone'))
+                    <div class="login__validate">
+                        @foreach($errors->get('phone') as $err)
+                            <div class="validate">
+                                <p class="validate__message">{{ $err }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+            <div class="login__group">
+                <label for="password" class="login__label">Пароль</label>
+                <input type="password" name="password" id="password" class="login__input" placeholder="Пароль">
+                @if($errors->has('password'))
+                    <div class="login__validate">
+                        @foreach($errors->get('password') as $err)
+                            <div class="validate">
+                                <p class="validate__message">{{ $err }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+            <div class="login__group">
+                <label for="password-confirm" class="login__label">Повторите пароль</label>
+                <input type="password" name="password_confirmation" id="password-confirm" class="login__input" placeholder="Повторите пароль">
+            </div>
+            <div class="login__btns">
+                <button class="login__button" type="submit">Зарегистрироваться</button>
+                <a href="{{ route('login') }}" class="login__href">У меня уже есть аккаунт</a>
+            </div>
+        </form>
     </div>
-</div>
 @endsection

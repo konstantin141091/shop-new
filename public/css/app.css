@@ -114,12 +114,12 @@ h6 {
 
 .promo-slider .slick-prev {
   left: 20px;
-  background: url("/icons/sl-arrow_l.svg") 0 0/100% no-repeat;
+  background: url("/storage/icons/sl-arrow_l.svg") 0 0/100% no-repeat;
 }
 
 .promo-slider .slick-next {
   right: 20px;
-  background: url("/icons/sl-arrow_r.svg") 0 0/100% no-repeat;
+  background: url("/storage/icons/sl-arrow_r.svg") 0 0/100% no-repeat;
 }
 
 .promo-slider .slick-dotted.slick-slider {
@@ -230,12 +230,12 @@ h6 {
   }
 }
 
-.menu__item {
+.footer-menu__item {
   text-align: left;
   color: #333333;
 }
 
-.menu__title {
+.footer-menu__title {
   font-weight: bold;
   margin-bottom: 1rem;
   font-size: 1.6rem;
@@ -244,40 +244,40 @@ h6 {
   align-items: flex-start;
 }
 
-.menu__title > button {
+.footer-menu__title > button {
   background: transparent;
 }
 
 @media (min-width: 768px) {
-  .menu__title > button {
+  .footer-menu__title > button {
     display: none;
   }
 }
 
-.menu__link {
+.footer-menu__link {
   display: block;
   color: #333333;
   font-size: 1.4rem;
 }
 
-.menu__link:hover {
+.footer-menu__link:hover {
   color: #b63334;
 }
 
-.menu__link + .menu__link {
+.footer-menu__link + .footer-menu__link {
   margin-top: 1rem;
 }
 
-.menu__item + .menu__item {
+.footer-menu__item + .footer-menu__item {
   margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
-  .menu__item + .menu__item {
+  .footer-menu__item + .footer-menu__item {
     margin-left: 6rem;
   }
 
-  .menu__item + .menu__item {
+  .footer-menu__item + .footer-menu__item {
     margin-top: 0;
   }
 }
@@ -689,6 +689,146 @@ h6 {
 .catalog__main {
   width: 100%;
   padding: 10px;
+}
+
+.left {
+  width: 50%;
+  margin-right: 5%;
+}
+
+.left img {
+  width: 100%;
+}
+
+.right {
+  width: 45%;
+}
+
+.product__title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.product__buy {
+  background: #ededed;
+  padding: 40px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.product__price {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
+.product__btn {
+  padding: 8px 16px;
+  min-width: 200px;
+}
+
+.product__description div {
+  margin-bottom: 1.5rem;
+}
+
+.product__description h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.login__group-phone {
+  position: relative;
+}
+
+.login-phone-7 {
+  position: absolute;
+  top: 38.4px;
+  left: 9px;
+  font-size: 16px;
+}
+
+.login__title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #333333;
+  margin: 16px 0;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.login__label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.login__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.login__input {
+  border: solid 1px #cccccc;
+  border-radius: 5px;
+  color: #333333;
+  padding: 6px 10px;
+  line-height: 24px;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+.login__input-phone {
+  padding-left: 28px;
+}
+
+.login__button {
+  color: #ffffff;
+  padding: 16px;
+  line-height: 16px;
+  font-size: 16px;
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.login__href {
+  color: #B63334;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.login__href:last-child {
+  margin-right: 0;
+}
+
+.login__validate {
+  margin-top: 5px;
+}
+
+.login__checkPassword {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.login__checkPassword label {
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 15px;
+}
+
+.validate__message {
+  color: #f10f0f;
+  font-size: 18px;
 }
 
 * {

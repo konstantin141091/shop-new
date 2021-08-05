@@ -13,7 +13,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         $category_name = 'Каталог';
 
-        return view('pages.catalog', [
+        return $this->returnView('pages.catalog', [
             'products_list' => $products->items(),
             'products' => $products,
             'categories' => $categories,
@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $category_name = $category->name;
         $categories = Category::all();
         $products = Product::query()->where('category_id', $category->id)->paginate(9);
-        return view('pages.catalog', [
+        return $this->returnView('pages.catalog', [
             'products_list' => $products->items(),
             'products' => $products,
             'categories' => $categories,

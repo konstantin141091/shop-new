@@ -11,11 +11,7 @@
             <div class="product__info">
                 <div class="product__buy">
                     <p class="product__price">{{ $product->price }} руб.</p>
-{{--                    <Button--}}
-{{--                            btnClass="product__btn"--}}
-{{--                            btnText="В корзину"--}}
-{{--                            @click="addToCart"--}}
-{{--                    />--}}
+                    <product-buy-component :product="{{ json_encode($product) }}"></product-buy-component>
                 </div>
 
                 <div class="product__description">

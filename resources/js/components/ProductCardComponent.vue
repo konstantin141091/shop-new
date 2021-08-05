@@ -5,7 +5,7 @@
                 <img :src="imageUrl" :alt="productData.name">
             </a>
             <div class="product__text">
-                <a href="/" class="product__title">{{ productData.name }}, 1 {{ productData.unit }}</a>
+                <a :href="url" class="product__title">{{ productData.name }}, 1 {{ productData.unit }}</a>
                 <p class="product__price">{{ productData.price }} руб.</p>
             </div>
             <div class="product__btn">

@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Башкирские колбасы">
+    <meta name="keywords" content="Башкирские колбасы, колбасятина">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -39,13 +41,13 @@
                                         <a href="{{ route('category.index') }}" class="menu__link">Каталог</a>
                                     </li>
                                     <li class="menu__item">
-                                        <a href="/" class="menu__link">О компании</a>
+                                        <a href="{{ route('about') }}" class="menu__link">О компании</a>
                                     </li>
                                     <li class="menu__item">
-                                        <a href="/" class="menu__link">Контакты</a>
+                                        <a href="{{ route('contacts') }}" class="menu__link">Контакты</a>
                                     </li>
                                     <li class="menu__item">
-                                        <a href="/" class="menu__link">Доставка и оплата</a>
+                                        <a href="{{ route('delivery') }}" class="menu__link">Доставка и оплата</a>
                                     </li>
 
                                     @guest
@@ -83,26 +85,29 @@
                         </div>
 
                         <div class="header__search">
-                            <form action="" method="GET" class="header__search-form">
-                                @csrf
-                                <input type="text" class="header__search-input" placeholder="Поиск" name="product_search">
-                                <button type="button" class="header__search-btn">
+                            <form action="{{ route('product.search') }}" method="GET" class="header__search-form">
+{{--                                @csrf--}}
+                                <input type="text" class="header__search-input" placeholder="Поиск"
+                                       name="product_search" list="products_search">
+                                <datalist id="products_search">
+                                    @foreach($search_products as $product)
+                                        <option value="{{ $product->name }}"></option>
+                                    @endforeach
+                                </datalist>
+
+                                <button type="submit" class="header__search-btn">
                                     <img src="{{ asset('/storage/icons/search_white.svg') }}" alt="найти">
                                 </button>
                             </form>
                         </div>
 
                         <div class="header__controls">
-                            <a href="/">
-                                <img src="{{ asset('/storage/icons/person_black.svg') }}" alt="аккаунт">
-                            </a>
-                            <a href="/">
-                                    <span class="header__cart">
-                                        <img src="{{ asset('/storage/icons/shopping_cart_black.svg') }}" alt="корзина">
-                                        <span class="header__cart-badge">8</span>
-                                    </span>
-                                <span class="header__cart-text">200&nbsp;руб</span>
-                            </a>
+                            @auth
+                                <a href="/">
+                                    <img src="{{ asset('/storage/icons/person_black.svg') }}" alt="аккаунт">
+                                </a>
+                            @endauth
+                            <header-cart-component :mobile="0"></header-cart-component>
                         </div>
                     </div>
                 </header>
@@ -117,12 +122,7 @@
                         </a>
                     </div>
                     <div class="header__controls">
-                        <a href="/">
-                                <span class="header__cart">
-                                    <img src="{{ asset('/storage/icons/shopping_cart_black.svg') }}" alt="корзина">
-                                    <span class="header__cart-badge">5</span>
-                                </span>
-                        </a>
+                        <header-cart-component :mobile="1"></header-cart-component>
                     </div>
                 </header>
             </div>
@@ -132,44 +132,44 @@
             <footer>
                 <div class="footer__top">
                     <div class="footer__area-menu container">
-                        <div class="menu__item">
-                            <div class="menu__title">
+                        <div class="footer-menu__item">
+                            <div class=footer-"menu__title">
                                 <p>О магазине</p>
                                 <button>
                                     <span class="material-icons">keyboard_arrow_down</span>
                                 </button>
                             </div>
 
-                            <a href="/" class="menu__link">Адреса магазинов</a>
-                            <a href="/" class="menu__link">Акции и скидки</a>
-                            <a href="/" class="menu__link">Юридическим лицам</a>
-                            <a href="/" class="menu__link">Как заказать</a>
-                            <a href="/" class="menu__link">Обмен и возврат</a>
+                            <a href="/" class="footer-menu__link">Адреса магазинов</a>
+                            <a href="/" class="footer-menu__link">Акции и скидки</a>
+                            <a href="/" class="footer-menu__link">Юридическим лицам</a>
+                            <a href="/" class="footer-menu__link">Как заказать</a>
+                            <a href="/" class="footer-menu__link">Обмен и возврат</a>
                         </div>
 
-                        <div class="menu__item">
-                            <div class="menu__title">
+                        <div class="footer-menu__item">
+                            <div class="footer-menu__title">
                                 <p>Покупателям</p>
                                 <button>
                                     <span class="material-icons">keyboard_arrow_down</span>
                                 </button>
                             </div>
 
-                            <a href="/" class="menu__link">Личный кабинет</a>
-                            <a href="/" class="menu__link">Мои заказы</a>
-                            <a href="/" class="menu__link">Политика возврата</a>
+                            <a href="/" class="footer-menu__link">Личный кабинет</a>
+                            <a href="/" class="footer-menu__link">Мои заказы</a>
+                            <a href="{{ route('return_policy') }}" class="footer-menu__link">Политика возврата</a>
                         </div>
 
-                        <div class="menu__item">
-                            <div class="menu__title">
+                        <div class="footer-menu__item">
+                            <div class="footer-menu__title">
                                 <p>Информация</p>
                                 <button>
                                     <span class="material-icons">keyboard_arrow_down</span>
                                 </button>
                             </div>
 
-                            <a href="/" class="menu__link">Политика конфиденциальности и оферта</a>
-                            <a href="/" class="menu__link">Пользовательское соглашение</a>
+                            <a href="/" class="footer-menu__link">Политика конфиденциальности и оферта</a>
+                            <a href="{{ route('use_agreement') }}" class="footer-menu__link">Пользовательское соглашение</a>
                         </div>
                     </div>
                 </div>

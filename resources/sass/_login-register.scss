@@ -74,3 +74,10 @@
     }
   }
 }
+
+.validate {
+  &__message {
+    color: #f10f0f;
+    font-size: 18px;
+  }
+}

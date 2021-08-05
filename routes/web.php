@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//pages
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('/about', 'IndexController@about')->name('about');
+Route::get('/contacts', 'IndexController@contacts')->name('contacts');
+Route::get('/delivery', 'IndexController@delivery')->name('delivery');
+Route::get('/return_policy', 'IndexController@returnPolicy')->name('return_policy');
+Route::get('/use_agreement', 'IndexController@useAgreement')->name('use_agreement');
 
 //for categories
 Route::group([
@@ -34,4 +40,5 @@ Route::group([
 ], function () {
     Route::get('/', 'ProductController@index')->name('index');
     Route::get('/{product}', 'ProductController@show')->name('show');
+    Route::get('/search/value', 'ProductController@search')->name('search');
 });

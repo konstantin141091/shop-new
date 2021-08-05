@@ -1,0 +1,51 @@
+.left {
+  width: 50%;
+  margin-right: 5%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.right {
+  width: 45%;
+}
+
+.product {
+  &__title {
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  &__buy {
+    background: $greyLight;
+    padding: 40px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+
+  }
+
+  &__price {
+    font-size: 3.2rem;
+    font-weight: bold;
+  }
+
+  &__btn {
+    padding: 8px 16px;
+    min-width: 200px;
+  }
+}
+
+.product__description {
+  div {
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
