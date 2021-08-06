@@ -103,7 +103,7 @@
   overflow: hidden;
   white-space: nowrap;
   color: #999999;
-  @media screen and (min-device-width: 768px) and (max-device-width: 996px) {
+  @media (min-width: 768px) and (max-width: 996px) {
     display: none;
   }
 }

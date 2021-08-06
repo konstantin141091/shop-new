@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <div class="product">
-      <a :href="url" class="product__img">
-        <img :src="imageUrl" :alt="productData.name">
-      </a>
-      <div class="product__text">
-        <a :href="url" class="product__title">{{ productData.name }}, 1 {{ productData.unit }}</a>
-        <p class="product__price">{{ productData.price }} руб.</p>
-      </div>
-      <div class="product__btn">
-        <button @click="addToCart">
-          В корзину
-        </button>
-      </div>
+
+  <div class="product">
+    <a :href="url" class="product__img">
+      <img :src="imageUrl" :alt="productData.name">
+    </a>
+    <div class="product__text">
+      <a :href="url" class="product__title">{{ productData.name }}, 1 {{ productData.unit }}</a>
+      <p class="product__price">{{ productData.price }} руб.</p>
+    </div>
+    <div class="product__btn">
+      <button @click="addToCart">
+        В корзину
+      </button>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -50,10 +50,11 @@ export default {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  border: 1px solid $greyLight;
-  max-width: 230px;
-  min-width: 180px;
+  border: 1px solid #ededed;
+  min-width: 200px;
+
   height: 350px;
+  flex: 1 1 calc(33.33% - 30px);
 
   img {
     width: 100%;
