@@ -1,4 +1,4 @@
-.select {
+/*.select {
   display: block;
   font-size: 16px;
   color: $colorText;
@@ -13,8 +13,24 @@
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  /*    background-image: url('../storage/icons/arrow-down.svg');*/
+  !*    background-image: url('../storage/icons/arrow-down.svg');*!
   background-repeat: no-repeat;
+}*/
+
+
+.catalog {
+  &__top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    text-transform: capitalize;
+  }
 }
 
 .flex-box {
@@ -32,7 +48,7 @@
 }
 
 .category {
-  &__list {
+  &__list > a {
     border-bottom: 1px solid $greyLight;
     text-transform: capitalize;
     display: block;
@@ -51,4 +67,64 @@
 .catalog__main {
   width: 100%;
   padding: 10px;
+}
+
+
+//-------- pagination -------
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+
+  .page-item {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    color: $colorText;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: lighten($colorBtn, 10%);
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    &.active .page-link {
+      background-color: $colorBtn;
+      color: #ffffff !important;
+    }
+
+    &.disabled .page-link {
+      color: $grey !important;
+      border-color: transparent;
+      background: $greyLight;
+      cursor: context-menu;
+    }
+  }
+
+  li + li {
+    margin-left: 5px;
+  }
+}
+
+.page {
+  &-link {
+    background: $greyLight;
+    color: $colorBtn;
+    padding: 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    font-weight: bold;
+
+    &:hover {
+      border: 1px solid $colorBtn;
+    }
+
+    &:active {
+      background: lighten($greyLight, 10%);
+    }
+  }
 }

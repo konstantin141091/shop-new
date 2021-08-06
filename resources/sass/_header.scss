@@ -234,6 +234,10 @@
       font-weight: 500;
       padding: 10px 0;
       display: block;
+
+      &:hover {
+        color: $colorBtn;
+      }
     }
   }
 
