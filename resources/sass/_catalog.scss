@@ -35,10 +35,15 @@
 
 .flex-box {
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 928px) {
+    flex-direction: row;
+  }
 }
 
 .catalog__aside {
-  width: 300px;
+  min-width: 300px;
   padding: 10px;
 }
 
@@ -47,19 +52,38 @@
   margin-bottom: 1.5rem;
 }
 
+.aside__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  @media (min-width: 928px) {
+    flex-direction: column;
+  }
+}
+
 .category {
   &__list > a {
-    border-bottom: 1px solid $greyLight;
+    border-radius: 5px;
     text-transform: capitalize;
     display: block;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     color: $colorText;
     font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
     cursor: pointer;
+    transition: all .2s;
 
     &:hover {
       color: $colorBtn;
+      border-color: $colorBtn;
+    }
+
+    @media (min-width: 928px) {
+      border-bottom: 1px solid $greyLight;
+      padding: 1rem 0;
+      border-radius: 0;
+    }
+    @media (max-width: 927px) {
+      border: 1px solid $greyLight;
     }
   }
 }

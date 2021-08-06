@@ -26,7 +26,7 @@
 
     <div class="flex-box">
       <aside class="catalog__aside aside">
-        <h3 class="aside__title">Виды колбасы</h3>
+        <h3 class="aside__title">Виды продукции</h3>
         <ul class="aside__categories">
           @foreach($categories as $category)
             <li class="category__list">
