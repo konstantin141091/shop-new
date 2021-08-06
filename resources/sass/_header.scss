@@ -5,9 +5,25 @@
     margin-bottom: 3rem;
     display: block;
   }
+
+  &__content {
+    z-index: 10;
+  }
 }
 
-.header__mobile {
+.header-mobile {
+  margin-bottom: 30px;
+
+  & .header__search {
+    margin: 0;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.header-mobile__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,10 +100,12 @@
 }
 
 .header__work-time {
-  max-width: 250px;
   overflow: hidden;
   white-space: nowrap;
   color: #999999;
+  @media screen and (min-device-width: 768px) and (max-device-width: 996px) {
+    display: none;
+  }
 }
 
 .header__phone-value {
@@ -190,51 +208,46 @@
   }
 }
 
-//mobile
+//------------ menu -----------------
 
 .menu {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFFF;
-  padding: 80px 15px 30px;
-  transition: left 0.3s ease 0s;
-  overflow: auto;
 
   &__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    padding: 80px 0 30px;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
 
-  }
-
-  &._active {
-    left: 0;
-    z-index: 4;
-
-    &__link {
+    &._active {
+      font-size: 24px;
+      left: 0;
+      z-index: 4;
+    }
+    .menu__link {
       color: $colorText;
       text-align: left;
       font-weight: 500;
-      padding: 5px 0;
+      padding: 10px 0;
       display: block;
     }
   }
+
 }
 
-.menu._active {
-  & .header__search {
-    margin: 0 0 1rem;
-
-  }
-
+.menu__body {
   & .header__work-time {
-    padding: 5px 0;
+    padding: 10px 0;
     margin-bottom: 10px;
   }
 
   & .header__phone-value {
-    padding: 5px 0;
-    font-size: 24px;
+    padding: 10px 0;
+    font-size: 36px;
     font-weight: 500;
   }
 }
@@ -248,7 +261,6 @@
     width: 30px;
     height: 20px;
     cursor: pointer;
-    margin-left: 15px;
   }
   .menu__icon span,
   .menu__icon::before,

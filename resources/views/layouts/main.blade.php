@@ -117,24 +117,80 @@
           </div>
         </header>
 
-        <header class="header__mobile container">
+        <header class="header-mobile">
 
-          <div class="menu__icon" id="jsMenuIcon">
-            <span></span>
+          <div class="header-mobile__top container">
+
+            {{--    класс _active добавить для вывода меню      --}}
+            <div class="menu">
+              <div class="menu__icon" id="jsIconMenu">
+                <span></span>
+              </div>
+              {{--    класс _active добавить для вывода меню      --}}
+              <nav class="menu__body container ">
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <a href="{{ route('index') }}" class="menu__link">Главная</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="{{ route('category.index') }}" class="menu__link">Каталог</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="{{ route('about') }}" class="menu__link">О компании</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="{{ route('contacts') }}" class="menu__link">Контакты</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="{{ route('delivery') }}" class="menu__link">Доставка и оплата</a>
+                  </li>
+
+                  @guest
+                    <li class="menu__item">
+                      <a href="{{ route('login') }}" class="menu__link">Войти</a>
+                    </li>
+
+                  @else
+                    <li class="menu__item">
+                      <a href="/" class="menu__link">Личный кабинет</a>
+                    </li>
+                    <li class="menu__item">
+                      <a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();"
+                      >
+                        Выйти
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+                    </li>
+                  @endguest
+
+                </ul>
+
+                <p class="header__work-time">Доставка с 9:00 до 22:00</p>
+                <div class="header__phone">
+                  <a class="header__phone-value  _mobile" href="tel:+73519466611">+7(3519)46-66-11</a>
+                </div>
+
+              </nav>
+
+
+            </div>
+
+            <div class="header__logo">
+              <a href="{{ route('index') }}" class="navbar-brand">
+                <img src="{{ asset('/storage/images/logo.png') }}" alt="Logo">
+              </a>
+            </div>
+
+            <div class="header__controls">
+              <header-cart-component :mobile="1" :url="'{{ route('cart') }}'"></header-cart-component>
+            </div>
           </div>
 
-          <div class="header__logo">
-            <a href="{{ route('index') }}" class="navbar-brand">
-              <img src="{{ asset('/storage/images/logo.png') }}" alt="Logo">
-            </a>
-          </div>
-
-          <div class="header__controls">
-            <header-cart-component :mobile="1" :url="'{{ route('cart') }}'"></header-cart-component>
-          </div>
-
-{{--    класс _active добавить для вывода меню      --}}
-          <div class="menu ">
+          <div class="header-mobile__bottom container">
             <div class="header__search">
               <form action="{{ route('product.search') }}" method="GET" class="header__search-form">
                 {{--                                @csrf--}}
@@ -151,54 +207,12 @@
                 </button>
               </form>
             </div>
-
-            <nav class="menu__body _active">
-
-              <ul class="menu__list">
-                <li class="menu__item">
-                  <a href="{{ route('index') }}" class="menu__link">Главная</a>
-                </li>
-                <li class="menu__item">
-                  <a href="{{ route('category.index') }}" class="menu__link">Каталог</a>
-                </li>
-                <li class="menu__item">
-                  <a href="{{ route('about') }}" class="menu__link">О компании</a>
-                </li>
-                <li class="menu__item">
-                  <a href="{{ route('contacts') }}" class="menu__link">Контакты</a>
-                </li>
-                <li class="menu__item">
-                  <a href="{{ route('delivery') }}" class="menu__link">Доставка и оплата</a>
-                </li>
-
-                @guest
-                  <li class="menu__item">
-                    <a href="{{ route('login') }}" class="menu__link">Войти</a>
-                  </li>
-
-                @else
-                  <li class="menu__item">
-                    <a href="/" class="menu__link">Личный кабинет</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                       document.getElementById('logout-form').submit();">
-                      Выйти
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                    </form>
-                  </li>
-                @endguest
-              </ul>
-            </nav>
-
-            <p class="header__work-time">Доставка с 9:00 до 22:00</p>
-            <div class="header__phone">
-              <a class="header__phone-value  _mobile" href="tel:+73519466611">+7(3519)46-66-11</a>
-            </div>
           </div>
+
+
         </header>
+
+
       </div>
 
       <main class="main-layout">
