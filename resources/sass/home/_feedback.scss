@@ -13,6 +13,10 @@
   &__error {
     color: red;
   }
+
+  &__fields {
+    margin-bottom: 5px;
+  }
 }
 
 .feedback__field {
@@ -84,5 +88,9 @@
 #agree_rules {
   width: 15px;
   height: 15px;
-  margin-bottom: 5px;
+  cursor: pointer;
+}
+.agree-label {
+  user-select: none;
+  cursor: pointer;
 }

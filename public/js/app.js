@@ -39456,7 +39456,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "product__btn" }, [
         _c("button", { on: { click: _vm.addToCart } }, [
-          _vm._v("\n                В корзину\n            ")
+          _vm._v("\n        В корзину\n      ")
         ])
       ])
     ])
