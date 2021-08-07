@@ -4,7 +4,7 @@
     <div class="container cart">
         <h1 class="cart__title">Корзина</h1>
         <cart-page-component
-                :url_order="'{{ route('order.index') }}'" :url_product="'{{ route('product.index') }}'">
+                :url_order="'{{ route('order.create') }}'" :url_product="'{{ route('product.index') }}'">
         </cart-page-component>
 
     </div>

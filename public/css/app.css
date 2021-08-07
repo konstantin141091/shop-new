@@ -934,6 +934,112 @@ h6 {
   background: red;
 }
 
+.checkout {
+  position: relative;
+}
+
+.checkout__title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.checkout__box {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkout__form {
+  flex-grow: 1;
+  margin-right: 3rem;
+}
+
+.form__title {
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.form__btn {
+  height: 40px;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.regular-client {
+  margin-bottom: 1.5rem;
+}
+
+.basket-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.basket-item__img {
+  margin-right: 3rem;
+}
+
+.basket-item__img img {
+  width: 75px;
+}
+
+.basket-item__text {
+  display: flex;
+  align-items: flex-end;
+  color: #333333;
+}
+
+.basket-item__name {
+  line-height: 24px;
+  margin-right: 3rem;
+}
+
+.basket-item__price {
+  margin-left: auto;
+}
+
+.basket-item__price span {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.basket-item__list {
+  width: 450px;
+}
+
+.basket-item__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket-item__info p {
+  margin-bottom: 1.5rem;
+}
+
+.basket-item__info p > strong {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.basket-item__info_total p {
+  margin-top: 1.5rem;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.basket-item__info_total p > strong {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+hr {
+  border-bottom: 1px solid #ededed;
+}
+
 * {
   margin: 0;
   padding: 0;

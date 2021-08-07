@@ -8,6 +8,8 @@ Vue.component('catalog-list-component', require('./components/CatalogListCompone
 Vue.component('product-buy-component', require('./components/ProductBuyComponent.vue').default);
 Vue.component('header-cart-component', require('./components/HeaderCartComponent.vue').default);
 Vue.component('cart-page-component', require('./components/CartPageComponent.vue').default);
+Vue.component('cart-item-list-component', require('./components/CartItemListComponent.vue').default);
+Vue.component('order-button-component', require('./components/OrderButtonComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
