@@ -1,4 +1,4 @@
-.promotions {
+  .promotions {
   padding-bottom: 3rem;
 
   &__title {
@@ -9,14 +9,15 @@
 
   &__box {
     display: flex;
-    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     grid-gap: 3rem;
+    max-width: 1200px;
   }
 
   &__img {
     display: block;
     margin-bottom: 1.5rem;
-
     & img {
       width: 100%;
     }
@@ -24,10 +25,14 @@
 }
 
 .promotions__article {
-  max-width: 400px;
+  flex: 1 1 calc(35% - 3rem);
   min-width: 250px;
+  max-width: 400px;
   font-size: 1.6rem;
   color: $colorText;
+  @media (min-width: 1200px) {
+    flex: 1 1 calc(25% - 3rem);
+  }
 
   & h4 {
     margin-bottom: 15px;

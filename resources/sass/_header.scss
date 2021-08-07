@@ -5,9 +5,25 @@
     margin-bottom: 3rem;
     display: block;
   }
+
+  &__content {
+    z-index: 10;
+  }
 }
 
-.header__mobile {
+.header-mobile {
+  margin-bottom: 30px;
+
+  & .header__search {
+    margin: 0;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.header-mobile__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +36,7 @@
 
   & > button {
     background: transparent;
+
     & > span {
       font-size: 30px;
     }
@@ -38,6 +55,7 @@
   & > .header__cart {
     margin-right: 0;
   }
+
   & > .header__controls {
     display: flex;
     align-items: center;
@@ -82,10 +100,12 @@
 }
 
 .header__work-time {
-  max-width: 250px;
   overflow: hidden;
   white-space: nowrap;
   color: #999999;
+  @media (min-width: 768px) and (max-width: 996px) {
+    display: none;
+  }
 }
 
 .header__phone-value {
@@ -185,5 +205,101 @@
     color: #333333;
     font-size: 18px;
     font-weight: bold;
+  }
+}
+
+//------------ menu -----------------
+
+.menu {
+
+  &__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    padding: 80px 0 30px;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
+
+    &._active {
+      font-size: 24px;
+      left: 0;
+      z-index: 4;
+    }
+    .menu__link {
+      color: $colorText;
+      text-align: left;
+      font-weight: 500;
+      padding: 10px 0;
+      display: block;
+
+      &:hover {
+        color: $colorBtn;
+      }
+    }
+  }
+
+}
+
+.menu__body {
+  & .header__work-time {
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+
+  & .header__phone-value {
+    padding: 10px 0;
+    font-size: 36px;
+    font-weight: 500;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .menu__icon {
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .menu__icon span,
+  .menu__icon::before,
+  .menu__icon::after {
+    left: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+    background-color: $colorText;
+  }
+  .menu__icon::before,
+  .menu__icon::after {
+    content: "";
+  }
+  .menu__icon::before {
+    top: 0;
+  }
+  .menu__icon::after {
+    bottom: 0;
+  }
+  .menu__icon span {
+    top: 50%;
+    transform: scale(1) translate(0px, -50%);
+  }
+
+  .menu__icon._active span {
+    transform: scale(0) translate(0px, -50%);
+  }
+  .menu__icon._active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .menu__icon._active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
   }
 }

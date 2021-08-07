@@ -9,20 +9,30 @@
 
   &__box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    grid-gap: 1rem;
+    @media (min-width: 960px) {
+      justify-content: space-between;
+    }
   }
 }
 
 .benefit-list__article {
-  max-width: 300px;
+  max-width: 500px;
+  min-width: 250px;
   font-size: 2.2rem;
   text-align: center;
   color: $colorText;
+  @media (min-width: 960px) {
+    max-width: 300px;
+  }
 
   & h4 {
     margin-bottom: 15px;
     font-size: 2.4rem;
   }
+}
+
+.benefit-list__article + .benefit-list__article {
+  margin-left: 10px;
 }
