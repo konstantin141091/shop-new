@@ -24,7 +24,7 @@
   text-align: left;
   position: relative;
 
-  & input {
+  & input, & textarea {
     background: #f7f7f7;
     width: 100%;
     border-radius: 5px;
@@ -33,31 +33,8 @@
   }
 
   & textarea {
-    background: #f7f7f7;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 6px 10px;
     height: 115px;
     resize: none;
-  }
-}
-
-.form-item {
-  margin-bottom: 2rem;
-  text-align: left;
-  position: relative;
-
-  & input, textarea {
-    background: #f7f7f7;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 6px 10px;
-  }
-
-  & textarea {
-    height: 115px;
   }
 }
 
