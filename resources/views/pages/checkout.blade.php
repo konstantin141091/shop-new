@@ -7,13 +7,11 @@
 {{--        </div>--}}
         <h1 class="checkout__title">Оформление заказа</h1>
         <div class="checkout__box">
-            <form action="" id="csrf">
-                @csrf
-            </form>
-            <form class="checkout__form" @submit.prevent="submitHandler" name="order">
+            <form class="checkout__form" method="POST" action="{{ route('order.store') }}">
                 @csrf
                 <div class="checkout-block">
                     <h2 class="form__title">Контактные данные</h2>
+                    <input type="hidden" name="cart" id="cart">
 
                     <label for="name">Контактное лицо (ФИО)</label>
                     <input type="text" name="name" id="name" value="{{ old('name') }}">
@@ -98,9 +96,9 @@
                     <h3 class="form__title">Способ оплаты</h3>
                     <p>Оплата производится наличными или по карте курьеру</p>
                 </div>
-                <order-button-component></order-button-component>
+{{--                <order-button-component></order-button-component>--}}
 
-{{--                <button class="form__btn" id="order__btn">Подтвердить заказ</button>--}}
+                <button class="form__btn" type="submit">Подтвердить заказ</button>
             </form>
 
             <cart-item-list-component></cart-item-list-component>

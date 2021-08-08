@@ -27,17 +27,18 @@
     },
     methods: {
       makeOrder() {
-        this.
+
+
         const formData = new FormData(document.forms.order);
-        formData.append("cart", this.CART);
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "/order/store");
-        xhr.send(formData);
-        console.log('end');
+        // formData.append("cart", this.CART);
+        // const xhr = new XMLHttpRequest();
+        // xhr.open("POST", "/order/store");
+        // xhr.send(formData);
+        // console.log('end');
 
 
 
-        // const csrf = document.getElementById('csrf')[0].value;
+        const csrf = document.getElementById('csrf')[0].value;
         // if (document.getElementById('name').value) {
         //   this.order.name = document.getElementById('name').value;
         // }
@@ -55,18 +56,18 @@
         // }
         // this.order.delivery = document.querySelector('input[name="delivery"]:checked').value;
 
-        // fetch('/order/store', {
-        //   method: 'post',
-        //   headers: {
-        //     'Accept': 'application/json, text/plain, */*',
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify({
-        //     _token: csrf,
-        //     order: this.order,
-        //     cart: this.CART,
-        //   })
-        // });
+        fetch('/order/store', {
+          method: 'post',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            _token: csrf,
+            // order: this.order,
+            // cart: this.CART,
+          })
+        });
       }
     }
   }

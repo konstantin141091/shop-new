@@ -12,10 +12,11 @@ class OrderController extends Controller
     }
 
     public function store(OrderRequest $request) {
-        dd($request->all());
-        $request->flash();
-        $res = $request->validated();
-        dd($res);
+        dd($request);
+//        dd($request->all());
+//        $request->flash();
+//        $res = $request->validated();
+//        dd($res);
 
         dd('valid');
     }

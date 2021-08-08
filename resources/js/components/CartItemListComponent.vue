@@ -38,10 +38,22 @@
 
   export default {
     name: "CartItemListComponent",
+    data() {
+      return {
+        products: '',
+      }
+    },
     computed: {
       ...mapGetters([
         'CART', 'CART_TOTAL_PRICE'
       ])
+    },
+    mounted() {
+      this.CART.forEach((element) => {
+        this.products = this.products + element.id + '-' + element.quantity + ',';
+      });
+      this.products = this.products.slice(0, -1);
+      document.getElementById('cart').value = this.products;
     }
   }
 </script>

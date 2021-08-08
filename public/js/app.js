@@ -2050,7 +2050,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CartItemListComponent",
-  computed: _objectSpread({}, Object(vuex_dist_vuex_mjs__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['CART', 'CART_TOTAL_PRICE']))
+  data: function data() {
+    return {
+      products: ''
+    };
+  },
+  computed: _objectSpread({}, Object(vuex_dist_vuex_mjs__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['CART', 'CART_TOTAL_PRICE'])),
+  mounted: function mounted() {
+    var _this = this;
+
+    this.CART.forEach(function (element) {
+      _this.products = _this.products + element.id + '-' + element.quantity + ',';
+    });
+    this.products = this.products.slice(0, -1);
+    document.getElementById('cart').value = this.products;
+  }
 });
 
 /***/ }),
@@ -2326,9 +2340,77 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/OrderButtonComponent.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\konstantin\\projects\\shop-new\\resources\\js\\components\\OrderButtonComponent.vue: Missing semicolon. (31:11)\n\n\u001b[0m \u001b[90m 29 |\u001b[39m     makeOrder() {\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m       \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m       \u001b[36mconst\u001b[39m formData \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mFormData\u001b[39m(document\u001b[33m.\u001b[39mforms\u001b[33m.\u001b[39morder)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 |\u001b[39m       formData\u001b[33m.\u001b[39mappend(\u001b[32m\"cart\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m\u001b[33mCART\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 33 |\u001b[39m       \u001b[36mconst\u001b[39m xhr \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mXMLHttpRequest\u001b[39m()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 34 |\u001b[39m       xhr\u001b[33m.\u001b[39mopen(\u001b[32m\"POST\"\u001b[39m\u001b[33m,\u001b[39m \u001b[32m\"/order/store\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:788:17)\n    at Parser.raiseWithData (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:781:17)\n    at Parser.raise (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:742:17)\n    at Parser.semicolon (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:9899:10)\n    at Parser.parseExpressionStatement (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:13127:10)\n    at Parser.parseStatementContent (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:12716:19)\n    at Parser.parseStatement (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:12580:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:13169:25)\n    at Parser.parseBlockBody (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:13160:10)\n    at Parser.parseBlock (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:13144:10)\n    at Parser.parseFunctionBody (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:12033:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:12017:10)\n    at Parser.parseMethod (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11967:10)\n    at Parser.parseObjectMethod (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11895:19)\n    at Parser.parseObjPropValue (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11928:23)\n    at Parser.parsePropertyDefinition (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11852:10)\n    at Parser.parseObjectLike (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11741:25)\n    at Parser.parseExprAtom (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11265:23)\n    at Parser.parseExprSubscripts (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10914:23)\n    at Parser.parseUpdate (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)\n    at Parser.parseMaybeConditional (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10707:23)\n    at Parser.parseMaybeAssign (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10670:21)\n    at C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10632:39\n    at Parser.allowInAnd (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:12378:12)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10632:17)\n    at Parser.parseObjectProperty (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11903:101)\n    at Parser.parseObjPropValue (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11928:100)\n    at Parser.parsePropertyDefinition (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11852:10)\n    at Parser.parseObjectLike (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11741:25)\n    at Parser.parseExprAtom (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:11265:23)\n    at Parser.parseExprSubscripts (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10914:23)\n    at Parser.parseUpdate (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10894:21)\n    at Parser.parseMaybeUnary (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10872:23)\n    at Parser.parseExprOps (C:\\Users\\konstantin\\projects\\shop-new\\node_modules\\@babel\\parser\\lib\\index.js:10733:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex_dist_vuex_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex/dist/vuex.mjs */ "./node_modules/vuex/dist/vuex.mjs");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "OrderButtonComponent",
+  data: function data() {
+    return {
+      order: {
+        name: null,
+        email: null,
+        address: null,
+        delivery: 'самовывоз',
+        comment: null,
+        phone: null
+      }
+    };
+  },
+  computed: _objectSpread({}, Object(vuex_dist_vuex_mjs__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['CART', 'CART_TOTAL_PRICE'])),
+  methods: {
+    makeOrder: function makeOrder() {
+      var formData = new FormData(document.forms.order); // formData.append("cart", this.CART);
+      // const xhr = new XMLHttpRequest();
+      // xhr.open("POST", "/order/store");
+      // xhr.send(formData);
+      // console.log('end');
+
+      var csrf = document.getElementById('csrf')[0].value; // if (document.getElementById('name').value) {
+      //   this.order.name = document.getElementById('name').value;
+      // }
+      // if (document.getElementById('phone').value) {
+      //   this.order.phone = document.getElementById('phone').value;
+      // }
+      // if (document.getElementById('address').value) {
+      //   this.order.address = document.getElementById('address').value;
+      // }
+      // if (document.getElementById('comment').value) {
+      //   this.order.comment = document.getElementById('comment').value;
+      // }
+      // if (document.getElementById('email').value) {
+      //   this.order.email = document.getElementById('email').value;
+      // }
+      // this.order.delivery = document.querySelector('input[name="delivery"]:checked').value;
+
+      fetch('/order/store', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          _token: csrf // order: this.order,
+          // cart: this.CART,
+
+        })
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -7102,7 +7184,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product[data-v-38eff5ee] {\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  border: 1px solid #ededed;\n  max-width: 230px;\n  min-width: 180px;\n  height: 350px;\n}\n.product img[data-v-38eff5ee] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__img[data-v-38eff5ee] {\n  display: block;\n  height: 180px;\n  margin-bottom: 1.5rem;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__text[data-v-38eff5ee] {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding-left: 10px;\n  padding-right: 10px;\n}\n.product__title[data-v-38eff5ee] {\n  font-size: 16px;\n  color: #333333;\n}\n.product__title[data-v-38eff5ee]:hover {\n  color: #b63334;\n}\n.product__price[data-v-38eff5ee] {\n  font-size: 2.4rem;\n  font-weight: bold;\n}\n.product__btn[data-v-38eff5ee] {\n  padding: 10px;\n}\n.product__btn button[data-v-38eff5ee] {\n  font-size: 16px;\n  cursor: pointer;\n  color: #ffffff;\n  background-color: #b63334;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n}", ""]);
+exports.push([module.i, ".product[data-v-38eff5ee] {\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  border: 1px solid #ededed;\n  min-width: 200px;\n  height: 350px;\n  flex: 1 1 calc(33.33% - 30px);\n}\n.product img[data-v-38eff5ee] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__img[data-v-38eff5ee] {\n  display: block;\n  height: 180px;\n  margin-bottom: 1.5rem;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__text[data-v-38eff5ee] {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding-left: 10px;\n  padding-right: 10px;\n}\n.product__title[data-v-38eff5ee] {\n  font-size: 16px;\n  color: #333333;\n}\n.product__title[data-v-38eff5ee]:hover {\n  color: #b63334;\n}\n.product__price[data-v-38eff5ee] {\n  font-size: 2.4rem;\n  font-weight: bold;\n}\n.product__btn[data-v-38eff5ee] {\n  padding: 10px;\n}\n.product__btn button[data-v-38eff5ee] {\n  font-size: 16px;\n  cursor: pointer;\n  color: #ffffff;\n  background-color: #b63334;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n}", ""]);
 
 // exports
 
@@ -39607,28 +39689,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "product" }, [
-      _c("a", { staticClass: "product__img", attrs: { href: _vm.url } }, [
-        _c("img", { attrs: { src: _vm.imageUrl, alt: _vm.productData.name } })
+  return _c("div", { staticClass: "product" }, [
+    _c("a", { staticClass: "product__img", attrs: { href: _vm.url } }, [
+      _c("img", { attrs: { src: _vm.imageUrl, alt: _vm.productData.name } })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "product__text" }, [
+      _c("a", { staticClass: "product__title", attrs: { href: _vm.url } }, [
+        _vm._v(
+          _vm._s(_vm.productData.name) + ", 1 " + _vm._s(_vm.productData.unit)
+        )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "product__text" }, [
-        _c("a", { staticClass: "product__title", attrs: { href: _vm.url } }, [
-          _vm._v(
-            _vm._s(_vm.productData.name) + ", 1 " + _vm._s(_vm.productData.unit)
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "product__price" }, [
-          _vm._v(_vm._s(_vm.productData.price) + " руб.")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product__btn" }, [
-        _c("button", { on: { click: _vm.addToCart } }, [
-          _vm._v("\n        В корзину\n      ")
-        ])
+      _c("p", { staticClass: "product__price" }, [
+        _vm._v(_vm._s(_vm.productData.price) + " руб.")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "product__btn" }, [
+      _c("button", { on: { click: _vm.addToCart } }, [
+        _vm._v("\n      В корзину\n    ")
       ])
     ])
   ])
@@ -66214,14 +66294,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/components/OrderButtonComponent.vue ***!
   \**********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _OrderButtonComponent_vue_vue_type_template_id_aaf679b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OrderButtonComponent.vue?vue&type=template&id=aaf679b0&scoped=true& */ "./resources/js/components/OrderButtonComponent.vue?vue&type=template&id=aaf679b0&scoped=true&");
 /* harmony import */ var _OrderButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OrderButtonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OrderButtonComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _OrderButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _OrderButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -66251,7 +66332,7 @@ component.options.__file = "resources/js/components/OrderButtonComponent.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/OrderButtonComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66774,8 +66855,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\OpenServer\domains\shop-new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\OpenServer\domains\shop-new\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\konstantin\projects\shop-new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\konstantin\projects\shop-new\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
