@@ -80,27 +80,14 @@ export default {
       commit('SAVE_CART');
     },
 
-
     DELETE_FROM_CART_INDEX: ({commit}, index) => {
       commit('DELETE_FROM_CART', index);
       commit('SAVE_CART');
     },
 
-    // async API_ADD_TO_CART ({ dispatch }, credentials) {
-    //   await axios.get('/sanctum/csrf-cookie');
-    //   const answer = await axios.post('/cart', credentials)
-    //     .then((response) => {
-    //       return response;
-    //     })
-    //     .catch((error) => {
-    //       return error.response;
-    //     });
-    //   return answer;
-    // },
-
-    // CLEAR_ALL_CART: ({state}) => {
-    //   localStorage.clear();
-    //   state.CART = [];
-    // },
+    CLEAR_ALL_CART: ({state}) => {
+      localStorage.clear();
+      state.CART = [];
+    },
   }
 }

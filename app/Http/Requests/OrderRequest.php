@@ -25,7 +25,14 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-//            'order.name' => ['required', 'string', 'max:255'],
+            'cart' => ['required', 'max:1000'],
+            'name' => ['required', 'string', 'max:255'],
+//            TODO добавить валидацию для телефона
+            'phone' => ['required', 'max:12'],
+            'address' => ['required', 'max:1000'],
+            'delivery_method' => ['required', 'max:10'],
+            'comment' => ['max:1000'],
+            'email' => ['max:100'],
         ];
     }
 }

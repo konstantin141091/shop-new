@@ -10,9 +10,17 @@
             <form class="checkout__form" method="POST" action="{{ route('order.store') }}">
                 @csrf
                 <div class="checkout-block">
+
+                    @if($errors->has('cart'))
+                        <div class="login__validate">
+                            <div class="validate">
+                                <p class="validate__message">Для оформления заказа нужно добавить хотя бы один товар</p>
+                            </div>
+                        </div>
+                    @endif
+
                     <h2 class="form__title">Контактные данные</h2>
                     <input type="hidden" name="cart" id="cart">
-
                     <label for="name">Контактное лицо (ФИО)</label>
                     <input type="text" name="name" id="name" value="{{ old('name') }}">
                     @if($errors->has('order.name'))
@@ -56,12 +64,12 @@
                     @endif
 
                     <div class="form-item">
-                        <input type="radio" name="delivery" id="pickup" value="самовывоз" class="form-radio" checked>
+                        <input type="radio" name="delivery_method" id="pickup" value="самовывоз" class="form-radio" checked>
                         <label for="pickup" class="form-radio-label">Самовывоз</label>
                     </div>
 
                     <div class="form-item">
-                        <input type="radio" name="delivery" id="deliveryByCourier" value="курьер" class="form-radio">
+                        <input type="radio" name="delivery_method" id="deliveryByCourier" value="курьер" class="form-radio">
                         <label for="deliveryByCourier" class="form-radio-label">Курьером</label>
                     </div>
 
@@ -96,7 +104,6 @@
                     <h3 class="form__title">Способ оплаты</h3>
                     <p>Оплата производится наличными или по карте курьеру</p>
                 </div>
-{{--                <order-button-component></order-button-component>--}}
 
                 <button class="form__btn" type="submit">Подтвердить заказ</button>
             </form>
