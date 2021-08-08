@@ -122,62 +122,60 @@
           <div class="header-mobile__top container">
 
             {{--    класс _active добавить для вывода меню      --}}
-            <div class="menu">
-              <div class="menu__icon" id="jsIconMenu">
-                <span></span>
-              </div>
+
+            <menu-toggle>
+              {{--              <div class="menu__icon" id="jsIconMenu">--}}
+              {{--                <span></span>--}}
+              {{--              </div>--}}
               {{--    класс _active добавить для вывода меню      --}}
-              <nav class="menu__body container ">
-                <ul class="menu__list">
+
+              <ul class="menu__list">
+                <li class="menu__item">
+                  <a href="{{ route('index') }}" class="menu__link">Главная</a>
+                </li>
+                <li class="menu__item">
+                  <a href="{{ route('category.index') }}" class="menu__link">Каталог</a>
+                </li>
+                <li class="menu__item">
+                  <a href="{{ route('about') }}" class="menu__link">О компании</a>
+                </li>
+                <li class="menu__item">
+                  <a href="{{ route('contacts') }}" class="menu__link">Контакты</a>
+                </li>
+                <li class="menu__item">
+                  <a href="{{ route('delivery') }}" class="menu__link">Доставка и оплата</a>
+                </li>
+
+                @guest
                   <li class="menu__item">
-                    <a href="{{ route('index') }}" class="menu__link">Главная</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="{{ route('category.index') }}" class="menu__link">Каталог</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="{{ route('about') }}" class="menu__link">О компании</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="{{ route('contacts') }}" class="menu__link">Контакты</a>
-                  </li>
-                  <li class="menu__item">
-                    <a href="{{ route('delivery') }}" class="menu__link">Доставка и оплата</a>
+                    <a href="{{ route('login') }}" class="menu__link">Войти</a>
                   </li>
 
-                  @guest
-                    <li class="menu__item">
-                      <a href="{{ route('login') }}" class="menu__link">Войти</a>
-                    </li>
-
-                  @else
-                    <li class="menu__item">
-                      <a href="/" class="menu__link">Личный кабинет</a>
-                    </li>
-                    <li class="menu__item">
-                      <a href="{{ route('logout') }}"
-                         onclick="event.preventDefault();
+                @else
+                  <li class="menu__item">
+                    <a href="/" class="menu__link">Личный кабинет</a>
+                  </li>
+                  <li class="menu__item">
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();"
-                      >
-                        Выйти
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                      </form>
-                    </li>
-                  @endguest
+                    >
+                      Выйти
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  </li>
+                @endguest
 
-                </ul>
+              </ul>
 
-                <p class="header__work-time">Доставка с 9:00 до 22:00</p>
-                <div class="header__phone">
-                  <a class="header__phone-value  _mobile" href="tel:+73519466611">+7(3519)46-66-11</a>
-                </div>
+              <p class="header__work-time">Доставка с 9:00 до 22:00</p>
+              <div class="header__phone">
+                <a class="header__phone-value  _mobile" href="tel:+73519466611">+7(3519)46-66-11</a>
+              </div>
 
-              </nav>
-
-
-            </div>
+            </menu-toggle>
 
             <div class="header__logo">
               <a href="{{ route('index') }}" class="navbar-brand">
@@ -220,7 +218,7 @@
       </main>
 
       <footer>
-        <div class="footer__top">
+        <div class="footer__top desktop">
           <div class="footer__area-menu container">
             <div class="footer-menu__item">
               <div class="footer-menu__title">
@@ -230,11 +228,11 @@
                 </button>
               </div>
 
-              <a href="/" class="footer-menu__link">Адреса магазинов</a>
-              <a href="/" class="footer-menu__link">Акции и скидки</a>
-              <a href="/" class="footer-menu__link">Юридическим лицам</a>
-              <a href="/" class="footer-menu__link">Как заказать</a>
-              <a href="/" class="footer-menu__link">Обмен и возврат</a>
+              <a href="{{ route('contacts') }}" class="footer-menu__link">Адреса магазинов</a>
+              {{--              <a href="/" class="footer-menu__link">Акции и скидки</a>--}}
+              <a href="{{ route('return_policy') }}" class="footer-menu__link">Юридическим лицам</a>
+              <a href="{{ route('contacts') }}" class="footer-menu__link">Как заказать</a>
+              <a href="{{ route('return_policy') }}" class="footer-menu__link">Обмен и возврат</a>
             </div>
 
             <div class="footer-menu__item">
@@ -258,11 +256,53 @@
                 </button>
               </div>
 
-              <a href="/" class="footer-menu__link">Политика конфиденциальности и оферта</a>
+              <a href="{{ route('use_agreement') }}" class="footer-menu__link">Политика конфиденциальности и оферта</a>
               <a href="{{ route('use_agreement') }}" class="footer-menu__link">Пользовательское соглашение</a>
             </div>
           </div>
         </div>
+
+        <div class="footer__top mobile">
+          <div class="footer__area-menu container">
+            <spoiler-toggle>
+              <template v-slot:title>
+                <p>О магазине</p>
+              </template>
+
+              <a href="{{ route('contacts') }}" class="footer-menu__link">Адреса магазинов</a>
+{{--              <a href="/" class="footer-menu__link">Акции и скидки</a>--}}
+              <a href="{{ route('return_policy') }}" class="footer-menu__link">Юридическим лицам</a>
+              <a href="{{ route('contacts') }}" class="footer-menu__link">Как заказать</a>
+              <a href="{{ route('return_policy') }}" class="footer-menu__link">Обмен и возврат</a>
+            </spoiler-toggle>
+
+            <spoiler-toggle>
+              <template v-slot:title>
+                <p>Покупателям</p>
+              </template>
+
+              <a href="/" class="footer-menu__link">Личный кабинет</a>
+              <a href="/" class="footer-menu__link">Мои заказы</a>
+              <a href="{{ route('return_policy') }}" class="footer-menu__link">Политика возврата</a>
+            </spoiler-toggle>
+
+            <spoiler-toggle>
+              <template v-slot:title>
+                <p>Информация</p>
+              </template>
+
+              <a href="{{ route('use_agreement') }}" class="footer-menu__link">Политика конфиденциальности и оферта</a>
+              <a href="{{ route('use_agreement') }}" class="footer-menu__link">Пользовательское соглашение</a>
+            </spoiler-toggle>
+
+          </div>
+        </div>
+
+{{--        @if(!isMobile)--}}
+{{--          <div class="no-mobile"></div>--}}
+{{--        @else--}}
+{{--          <div class="mobile"></div>--}}
+
 
         <div class="footer__bottom">
           <p>&copy;2021&nbsp;Любое использование контента без письменного разрешения

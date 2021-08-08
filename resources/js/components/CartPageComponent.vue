@@ -28,7 +28,7 @@
                     <span>Итого</span>
                     <span>{{ CART_TOTAL_PRICE }}&nbsp;руб</span>
                 </div>
-                <a :href="url_order" class="total__btn" >Оформить заказ</a>
+                <a :href="url_order" class="button total__btn" >Оформить заказ</a>
             </div>
         </div>
     </div>
@@ -78,5 +78,23 @@
 </script>
 
 <style lang="scss" scoped>
+.total {
+  padding: 20px 25px;
+  background: #ededed;
+  border-radius: 5px;
+  width: 300px;
 
+  &__price {
+    color: #333333;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+
+  &__btn {
+    padding: 12px;
+  }
+}
 </style>
