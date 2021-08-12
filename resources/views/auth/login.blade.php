@@ -34,7 +34,7 @@
             <div class="login__btns">
                 <button type="submit" class="login__button">Войти</button>
                 <a href="{{ route('register') }}" class="login__href">Регистрация</a>
-                <a href="/" class="login__href">Восстановить пароль</a>
+                <a href="{{ route('password.request') }}" class="login__href">Восстановить пароль</a>
             </div>
         </form>
     </div>

@@ -2047,6 +2047,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CartItemListComponent",
@@ -7318,7 +7321,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product[data-v-38eff5ee] {\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  border: 1px solid #ededed;\n  min-width: 200px;\n  height: 350px;\n  flex: 1 1 calc(33.33% - 30px);\n}\n.product img[data-v-38eff5ee] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__img[data-v-38eff5ee] {\n  display: block;\n  height: 180px;\n  margin-bottom: 1.5rem;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__text[data-v-38eff5ee] {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding-left: 10px;\n  padding-right: 10px;\n}\n.product__title[data-v-38eff5ee] {\n  font-size: 16px;\n  color: #333333;\n}\n.product__title[data-v-38eff5ee]:hover {\n  color: #b63334;\n}\n.product__price[data-v-38eff5ee] {\n  font-size: 2.4rem;\n  font-weight: bold;\n}\n.product__btn[data-v-38eff5ee] {\n  padding: 10px;\n}\n.product__btn button[data-v-38eff5ee] {\n  font-size: 16px;\n  cursor: pointer;\n  color: #ffffff;\n  background-color: #b63334;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n}", ""]);
+exports.push([module.i, ".product[data-v-38eff5ee] {\n  display: flex;\n  flex-direction: column;\n  border-radius: 10px;\n  border: 1px solid #ededed;\n  min-width: 200px;\n  max-width: 310px;\n  height: 350px;\n  flex: 1 1 calc(33.33% - 30px);\n}\n.product img[data-v-38eff5ee] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__img[data-v-38eff5ee] {\n  display: block;\n  height: 180px;\n  margin-bottom: 1.5rem;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n}\n.product__text[data-v-38eff5ee] {\n  flex-grow: 1;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding-left: 10px;\n  padding-right: 10px;\n}\n.product__title[data-v-38eff5ee] {\n  font-size: 16px;\n  color: #333333;\n}\n.product__title[data-v-38eff5ee]:hover {\n  color: #b63334;\n}\n.product__price[data-v-38eff5ee] {\n  font-size: 2.4rem;\n  font-weight: bold;\n}\n.product__btn[data-v-38eff5ee] {\n  padding: 10px;\n}\n.product__btn button[data-v-38eff5ee] {\n  font-size: 16px;\n  cursor: pointer;\n  color: #ffffff;\n  background-color: #b63334;\n  width: 100%;\n  padding: 10px;\n  border-radius: 5px;\n}", ""]);
 
 // exports
 
@@ -39545,23 +39548,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "basket-item__box" }, [
+    _c("h2", { staticClass: "basket-item__title" }, [_vm._v("Ваш заказ")]),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "basket-item__list" },
       _vm._l(_vm.CART, function(item, index) {
         return _c("div", { key: "item" + index, staticClass: "basket-item" }, [
-          _c("div", { staticClass: "basket-item__img" }, [
-            _c("img", {
-              attrs: {
-                src: "/storage/images/products/" + item.img,
-                alt: item.name
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "basket-item__name" }, [
-            _vm._v(_vm._s(item.name))
+          _c("div", { staticClass: "basket-item__wrap" }, [
+            _c("div", { staticClass: "basket-item__img" }, [
+              _c("img", {
+                attrs: {
+                  src: "/storage/images/products/" + item.img,
+                  alt: item.name
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "basket-item__name" }, [
+              _vm._v(_vm._s(item.name))
+            ])
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "basket-item__price" }, [

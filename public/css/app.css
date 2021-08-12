@@ -746,7 +746,8 @@ h6 {
   position: relative;
 }
 
-.feedback__field input {
+.feedback__field input,
+.feedback__field textarea {
   background: #f7f7f7;
   width: 100%;
   border-radius: 5px;
@@ -755,32 +756,8 @@ h6 {
 }
 
 .feedback__field textarea {
-  background: #f7f7f7;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 6px 10px;
   height: 115px;
   resize: none;
-}
-
-.form-item {
-  margin-bottom: 2rem;
-  text-align: left;
-  position: relative;
-}
-
-.form-item input,
-.form-item textarea {
-  background: #f7f7f7;
-  width: 100%;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 6px 10px;
-}
-
-.form-item textarea {
-  height: 115px;
 }
 
 @media (min-width: 565px) {
@@ -1293,12 +1270,31 @@ h6 {
 
 .checkout__box {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .checkout__box {
+    flex-direction: row;
+  }
 }
 
 .checkout__form {
   flex-grow: 1;
   margin-right: 3rem;
+  order: 1;
+  min-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .checkout__form {
+    order: 0;
+  }
+}
+
+.checkout .basket-item__box {
+  margin-bottom: 3rem;
 }
 
 .form__title {
@@ -1310,19 +1306,27 @@ h6 {
   height: 40px;
   width: 100%;
   margin-top: 1.5rem;
-}
-
-.regular-client {
-  margin-bottom: 1.5rem;
+  padding: 6px 12px;
 }
 
 .basket-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: 1px solid #ededed;
   margin-bottom: 1rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.basket-item__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.basket-item__title {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
 }
 
 .basket-item__img {
@@ -1355,7 +1359,7 @@ h6 {
 }
 
 .basket-item__list {
-  width: 450px;
+  max-width: 450px;
 }
 
 .basket-item__info {
@@ -1385,6 +1389,74 @@ h6 {
 
 hr {
   border-bottom: 1px solid #ededed;
+}
+
+.checkout-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control input,
+.form-control select,
+.form-control textarea {
+  font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
+  margin: 0;
+  outline: none;
+  border: 2px solid #ccc;
+  display: block;
+  width: 100%;
+  color: #2c3e50;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3px;
+  font-size: 1.6rem;
+}
+
+.form-control span {
+  color: #e53935;
+}
+
+.form-control textarea {
+  height: 115px;
+  resize: none;
+}
+
+.form-control.invalid input {
+  border-color: #e53935;
+}
+
+.form-checkbox,
+.form-radio {
+  margin-bottom: 1rem;
+}
+
+.form-checkbox .label {
+  display: block;
+  margin: 0 0 0.3rem 0.3rem;
+  font-weight: 500;
+}
+
+.form-radio .label {
+  display: block;
+  margin: 0 0 0.3rem 0.3rem;
+  font-weight: 500;
+}
+
+.form-checkbox .checkbox input {
+  margin-right: 1rem;
+}
+
+.form-control label {
+  display: block;
+  margin: 0 0 0.3rem 0.3rem;
+  font-weight: 500;
+}
+
+.form-control input:active,
+.form-control textarea:active,
+.form-control textarea:focus,
+.form-control input:focus {
+  transition: border 0.22s;
+  border: 2px solid #42b983;
 }
 
 .order__title {
