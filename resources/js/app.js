@@ -10,6 +10,8 @@ Vue.component('header-cart-component', require('./components/HeaderCartComponent
 Vue.component('cart-page-component', require('./components/CartPageComponent.vue').default);
 Vue.component('cart-item-list-component', require('./components/CartItemListComponent.vue').default);
 Vue.component('clear-cart-component', require('./components/ClearCartComponent.vue').default);
+Vue.component('check-address-component', require('./components/account/CheckAddressComponent.vue').default);
+Vue.component('check-password-component', require('./components/account/CheckPasswordComponent.vue').default);
 
 //menu
 Vue.component('menu-toggle', require('./components/MenuToggle.vue').default);

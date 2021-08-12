@@ -1468,6 +1468,51 @@ hr {
   border: none;
 }
 
+.account {
+  margin-top: 20px;
+  display: flex;
+}
+
+.account__menu {
+  margin-right: 40px;
+}
+
+.account__menu ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.account__li {
+  margin-bottom: 15px;
+}
+
+.account__li:last-child {
+  margin-bottom: 0;
+}
+
+.account__link {
+  color: #1f7d63;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.account__link:hover {
+  text-decoration: none;
+}
+
+.profile {
+  width: 100%;
+  position: relative;
+}
+
+.profile__title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1507,6 +1552,10 @@ h6 {
 
 .main-layout {
   flex-grow: 1;
+}
+
+.d-n {
+  display: none;
 }
 
 .container {

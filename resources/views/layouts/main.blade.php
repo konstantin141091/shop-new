@@ -60,7 +60,7 @@
 
                   @else
                     <li class="menu__item">
-                      <a href="/" class="menu__link">Личный кабинет</a>
+                      <a href="{{ route('account.index') }}" class="menu__link">Личный кабинет</a>
                     </li>
                     <li class="menu__item">
                       <a href="{{ route('logout') }}"
@@ -91,7 +91,6 @@
 
             <div class="header__search">
               <form action="{{ route('product.search') }}" method="GET" class="header__search-form">
-                {{--                                @csrf--}}
                 <input type="text" class="header__search-input" placeholder="Поиск"
                        name="product_search" list="products_search">
                 <datalist id="products_search">
@@ -108,7 +107,7 @@
 
             <div class="header__controls">
               @auth
-                <a href="/">
+                <a href="{{ route('account.index') }}">
                   <img src="{{ asset('/storage/icons/person_black.svg') }}" alt="аккаунт">
                 </a>
               @endauth
@@ -153,7 +152,7 @@
 
                 @else
                   <li class="menu__item">
-                    <a href="/" class="menu__link">Личный кабинет</a>
+                    <a href="{{ route('account.index') }}" class="menu__link">Личный кабинет</a>
                   </li>
                   <li class="menu__item">
                     <a href="{{ route('logout') }}"

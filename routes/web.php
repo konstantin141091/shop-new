@@ -52,3 +52,16 @@ Route::group([
     Route::get('/create', 'OrderController@create')->name('create');
     Route::post('/store', 'OrderController@store')->name('store');
 });
+
+// for account
+Route::group([
+    'prefix' => 'account',
+    'as' => 'account.',
+    'middleware' => 'auth'
+], function() {
+    Route::get('/', 'AccountController@index')->name('index');
+    Route::post('/update', 'AccountController@update')->name('update');
+
+    Route::get('/orders', 'AccountController@orders')->name('orders');
+    Route::get('/orders/{order}', 'AccountController@orderShow')->name('order.show');
+});
