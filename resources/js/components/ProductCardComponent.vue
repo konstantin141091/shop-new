@@ -52,6 +52,7 @@ export default {
   border-radius: 10px;
   border: 1px solid #ededed;
   min-width: 200px;
+  max-width: 310px;
 
   height: 350px;
   flex: 1 1 calc(33.33% - 30px);
