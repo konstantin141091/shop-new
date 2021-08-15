@@ -143,6 +143,7 @@ hr {
 .checkout-block {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 
@@ -152,27 +153,28 @@ hr {
 .form-control select,
 .form-control textarea {
   font-family: $fontFamily;
-  margin: 0;
   outline: none;
-  border: 2px solid #ccc;
+  border: 1px solid #333;
   display: block;
   width: 100%;
   color: #2c3e50;
   padding: 0.5rem 1.5rem;
   border-radius: 3px;
   font-size: 1.6rem;
+  margin: 0 0 1rem;
 }
 
-.form-control span {
-  color: #e53935;
-}
 .form-control textarea {
   height: 115px;
   resize: none;
 }
 
-.form-control.invalid input {
-  border-color: #e53935;
+.form-control input:active,
+.form-control textarea:active,
+.form-control textarea:focus,
+.form-control input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0,.05);
+  border-color: #ccc;
 }
 
 .form-checkbox, .form-radio {
@@ -182,13 +184,11 @@ hr {
 .form-checkbox .label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
 .form-radio .label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
 .form-checkbox .checkbox input {
@@ -198,13 +198,16 @@ hr {
 .form-control label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
-.form-control input:active,
-.form-control textarea:active,
-.form-control textarea:focus,
-.form-control input:focus {
-  transition: border 0.22s;
-  border: 2px solid #42b983;
+.checkout__group-phone {
+  position: relative;
+}
+.checkout-phone-7 {
+  position: absolute;
+  top: 28.4px;
+  left: 9px;
+}
+.form-control input.checkout__input-phone {
+  padding-left: 28px;
 }

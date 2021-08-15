@@ -36,9 +36,10 @@
             @endif
           </div>
 
-          <div class="form-control">
+          <div class="form-control checkout__group-phone">
             <label for="phone">Контактный телефон</label>
-            <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" placeholder="9145220980">
+            <span class="checkout-phone-7">+7</span>
+            <input type="tel" name="phone" id="phone" class="checkout__input-phone" value="{{ old('phone') }}" placeholder="9145220980">
             @if($errors->has('phone'))
               <div class="login__validate">
                 @foreach($errors->get('phone') as $err)

@@ -34,7 +34,7 @@
             <div class="login__group login__group-phone">
                 <label for="phone" class="login__label">Телефон</label>
                 <span class="login-phone-7">+7</span>
-                <input type="tel" name="phone" id="phone" class="login__input login__input-phone" value="{{ old('phone') }}" placeholder="9225663344">
+                <input type="tel" name="phone" id="phone" class="login__input login__input-phone" value="{{ old('phone') }}" placeholder="9000000000">
                 @if($errors->has('phone'))
                     <div class="login__validate">
                         @foreach($errors->get('phone') as $err)
@@ -63,9 +63,11 @@
                 <input type="password" name="password_confirmation" id="password-confirm" class="login__input" placeholder="Повторите пароль">
             </div>
             <div class="login__btns">
-                <button class="login__button" type="submit">Зарегистрироваться</button>
+                <button class="button login__button" type="submit">Зарегистрироваться</button>
                 <a href="{{ route('login') }}" class="login__href">У меня уже есть аккаунт</a>
             </div>
+
+          <check-phone-component></check-phone-component>
         </form>
     </div>
 @endsection

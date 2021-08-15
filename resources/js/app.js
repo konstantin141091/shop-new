@@ -12,6 +12,7 @@ Vue.component('cart-item-list-component', require('./components/CartItemListComp
 Vue.component('clear-cart-component', require('./components/ClearCartComponent.vue').default);
 Vue.component('check-address-component', require('./components/account/CheckAddressComponent.vue').default);
 Vue.component('check-password-component', require('./components/account/CheckPasswordComponent.vue').default);
+Vue.component('check-phone-component', require('./components/CheckPhoneComponent.vue').default);
 
 //menu
 Vue.component('menu-toggle', require('./components/MenuToggle.vue').default);

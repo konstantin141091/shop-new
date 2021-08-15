@@ -31,17 +31,21 @@
     margin-bottom: 16px;
   }
   &__input {
-    border: solid 1px #cccccc;
+    border: solid 1px #333333;
     border-radius: 5px;
     color: #333333;
     padding: 6px 10px;
     line-height: 24px;
     background-color: #ffffff;
     font-size: 16px;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0,0,0,.05);
+      border-color: #ccc;
+    }
   }
   &__input-phone {
     padding-left: 28px;
-
   }
   &__button {
     color: #ffffff;
@@ -78,6 +82,6 @@
 .validate {
   &__message {
     color: #f10f0f;
-    font-size: 18px;
+    font-size: 14px;
   }
 }

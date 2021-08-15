@@ -32,7 +32,7 @@
                 @endif
             </div>
             <div class="login__btns">
-                <button type="submit" class="login__button">Войти</button>
+                <button type="submit" class="button login__button">Войти</button>
                 <a href="{{ route('register') }}" class="login__href">Регистрация</a>
                 <a href="{{ route('password.request') }}" class="login__href">Восстановить пароль</a>
             </div>
