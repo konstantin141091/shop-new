@@ -29,6 +29,7 @@ class OrderRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
 //            TODO добавить валидацию для телефона
             'phone' => ['required', 'max:12'],
+            'location' => ['required', 'max:1000'],
             'address' => ['required', 'max:1000'],
             'delivery_method' => ['required', 'max:10'],
             'comment' => ['max:1000'],

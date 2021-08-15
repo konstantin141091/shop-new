@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use App\Services\MailService;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,14 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
     public function create() {
-        return $this->returnView('pages.checkout');
+        if (Auth::user()) {
+            $user = User::find(Auth::id());
+        }else {
+            $user = false;
+        }
+        return $this->returnView('pages.checkout', [
+            'user' => $user,
+        ]);
     }
 
     public function store(OrderRequest $request) {
@@ -58,8 +66,7 @@ class OrderController extends Controller
         if ($this->checkOrder()) {
 //            TODO проверка есть ли такой заказ уже. Возвращаю 404,
 // Нужна страница ошибок и туда редерект
-//            return abort(404);
-            dd('order');
+            return abort(404);
         } else {
             $order = new Order();
             $order->fill($request->all());
@@ -71,9 +78,6 @@ class OrderController extends Controller
             session()->regenerate();
             $mail->sendMail($order);
         }
-
-//        dd($products_cart);
-
         return $this->returnView('pages.order_ready', [
             'order' => $order,
             'products_cart' => $products_cart,

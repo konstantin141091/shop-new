@@ -14,6 +14,7 @@ class Order extends Model
         'name',
         'phone',
         'email',
+        'location',
         'address',
         'delivery_method',
         'comment',

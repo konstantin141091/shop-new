@@ -24,7 +24,7 @@
 
             <div class="order-row">
                 <p class="order-info__title">Адрес доставки</p>
-                <p class="order-info__value">{{ $order->address }}</p>
+                <p class="order-info__value">{{ $order->location }}, {{ $order->address }}</p>
             </div>
 
             <div class="order-row">

@@ -1630,6 +1630,10 @@ h6 {
   display: none;
 }
 
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
 .container {
   padding-right: 10px;
   padding-left: 10px;

@@ -56,9 +56,24 @@
           <h3 class="form__title">Доставка</h3>
 
           <div class="form-control">
-            <label for="address">Адрес доставки</label>
+            <label for="location">Населенный пункт</label>
+            <input type="text" name="location" id="location" value="{{ old('location') }}"
+                   placeholder="Челябинская область, г. Магнитогорск">
+            @if($errors->has('location'))
+              <div class="login__validate">
+                @foreach($errors->get('location') as $err)
+                  <div class="validate">
+                    <p class="validate__message">{{ $err }}</p>
+                  </div>
+                @endforeach
+              </div>
+            @endif
+          </div>
+
+          <div class="form-control">
+            <label for="address">Адрес</label>
             <input type="text" name="address" id="address" value="{{ old('address') }}"
-                   placeholder="Челябинская область, г. Магнитогорск, ул. Полевая, д.0">
+                   placeholder="ул. Полевая, д.0, кв.001">
             @if($errors->has('address'))
               <div class="login__validate">
                 @foreach($errors->get('address') as $err)

@@ -59,6 +59,10 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
 .container {
   padding-right: 10px;
   padding-left: 10px;

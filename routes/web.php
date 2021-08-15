@@ -63,5 +63,5 @@ Route::group([
     Route::post('/update', 'AccountController@update')->name('update');
 
     Route::get('/orders', 'AccountController@orders')->name('orders');
-    Route::get('/orders/{order}', 'AccountController@orderShow')->name('order.show');
+    Route::get('/orders/{id}', 'AccountController@orderShow')->name('order.show');
 });
