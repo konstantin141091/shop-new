@@ -29,6 +29,9 @@
 <body>
 <div id="app">
   <div class="wrap">
+    <form action="" id="csrf">
+      @csrf
+    </form>
     <div class="wrapper-layout">
       <div class="header__content">
 
@@ -117,9 +120,7 @@
         </header>
 
         <header class="header-mobile">
-
           <div class="header-mobile__top container">
-
             {{--    класс _active добавить для вывода меню      --}}
 
             <menu-toggle>

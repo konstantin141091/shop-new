@@ -1043,13 +1043,18 @@ h6 {
 }
 
 .login__input {
-  border: solid 1px #cccccc;
+  border: solid 1px #333333;
   border-radius: 5px;
   color: #333333;
   padding: 6px 10px;
   line-height: 24px;
   background-color: #ffffff;
   font-size: 16px;
+}
+
+.login__input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
+  border-color: #ccc;
 }
 
 .login__input-phone {
@@ -1094,7 +1099,7 @@ h6 {
 
 .validate__message {
   color: #f10f0f;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .promo {
@@ -1394,25 +1399,22 @@ hr {
 .checkout-block {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .form-control input,
 .form-control select,
 .form-control textarea {
   font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji";
-  margin: 0;
   outline: none;
-  border: 2px solid #ccc;
+  border: 1px solid #333;
   display: block;
   width: 100%;
   color: #2c3e50;
   padding: 0.5rem 1.5rem;
   border-radius: 3px;
   font-size: 1.6rem;
-}
-
-.form-control span {
-  color: #e53935;
+  margin: 0 0 1rem;
 }
 
 .form-control textarea {
@@ -1420,8 +1422,12 @@ hr {
   resize: none;
 }
 
-.form-control.invalid input {
-  border-color: #e53935;
+.form-control input:active,
+.form-control textarea:active,
+.form-control textarea:focus,
+.form-control input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.05);
+  border-color: #ccc;
 }
 
 .form-checkbox,
@@ -1432,13 +1438,11 @@ hr {
 .form-checkbox .label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
 .form-radio .label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
 .form-checkbox .checkbox input {
@@ -1448,15 +1452,20 @@ hr {
 .form-control label {
   display: block;
   margin: 0 0 0.3rem 0.3rem;
-  font-weight: 500;
 }
 
-.form-control input:active,
-.form-control textarea:active,
-.form-control textarea:focus,
-.form-control input:focus {
-  transition: border 0.22s;
-  border: 2px solid #42b983;
+.checkout__group-phone {
+  position: relative;
+}
+
+.checkout-phone-7 {
+  position: absolute;
+  top: 28.4px;
+  left: 9px;
+}
+
+.form-control input.checkout__input-phone {
+  padding-left: 28px;
 }
 
 .order__title {
@@ -1634,6 +1643,10 @@ input::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
+.agree-error {
+  color: #f10f0f;
+}
+
 .container {
   padding-right: 10px;
   padding-left: 10px;
@@ -1660,54 +1673,51 @@ input::-webkit-calendar-picker-indicator {
   }
 }
 
-.form-item {
-  display: block;
-  margin-bottom: 3rem;
-  position: relative;
-}
+/*.form {
+  &-item {
+    display: block;
+    margin-bottom: 3rem;
+    position: relative;
+  }
 
-.form-error {
-  border: 2px solid #D53128 !important;
-}
+  &-error {
+    border: 2px solid #D53128 !important;
+  }
 
-.form-label {
-  display: block;
-  margin: 0 0 5px;
-  font-size: 1.6rem;
-  color: #333333;
-}
+  &-label {
+    display: block;
+    margin: 0 0 5px;
+    font-size: 1.6rem;
+    color: $colorText;
 
-.form-input {
-  padding: 0 15px;
-  border: 1px solid #808080;
-  background-color: #ffffff;
-  color: #333333;
-  font-size: 1.6rem;
-  height: 40px;
-  border-radius: 5px;
-  width: 100%;
+  }
+  &-input {
+    padding: 0 15px;
+    border: 1px solid $grey;
+    background-color: #ffffff;
+    color: $colorText;
+    font-size: 1.6rem;
+    height: 40px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  &-input:focus {
+    box-shadow: 0 0 0 0.2rem $greyLight;
+    border-color: #cccccc;
+  }
+  &-input:disabled {
+    background: #DDD;
+    color: $grey;
+  }
+  &-input.invalid {
+    box-shadow: 0 0 0 0.2rem #D53128;
+  }
+  &-textarea {
+    height: 115px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }
-
-.form-input:focus {
-  box-shadow: 0 0 0 0.2rem #ededed;
-  border-color: #cccccc;
-}
-
-.form-input:disabled {
-  background: #DDD;
-  color: #808080;
-}
-
-.form-input.invalid {
-  box-shadow: 0 0 0 0.2rem #D53128;
-}
-
-.form-textarea {
-  height: 115px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .error-label {
   position: absolute;
   bottom: -15px;
@@ -1717,7 +1727,7 @@ input::-webkit-calendar-picker-indicator {
   font-size: 12px;
   line-height: 12px;
   color: #D53128;
-}
+}*/
 
 .router-link-exact-active {
   color: #b63334 !important;

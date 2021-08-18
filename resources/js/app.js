@@ -13,6 +13,7 @@ Vue.component('clear-cart-component', require('./components/ClearCartComponent.v
 Vue.component('check-address-component', require('./components/account/CheckAddressComponent.vue').default);
 Vue.component('check-password-component', require('./components/account/CheckPasswordComponent.vue').default);
 Vue.component('check-phone-component', require('./components/CheckPhoneComponent.vue').default);
+Vue.component('feedback-component', require('./components/home/FeedbackComponent.vue').default);
 
 //menu
 Vue.component('menu-toggle', require('./components/MenuToggle.vue').default);

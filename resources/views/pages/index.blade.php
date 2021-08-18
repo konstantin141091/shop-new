@@ -2,6 +2,18 @@
 
 @section('content')
   <div class="container">
+
+{{--    TODO  модалка которую надо заверстать --}}
+    <div style="
+      position: fixed;
+      border: solid 3px red;
+      color: red;
+      z-index: 999;
+      top: 50%;
+      right: 44%;" class="d-n" id="feedback-success">
+      <p>Ваш запрос принят. Спасибо.</p>
+    </div>
+
     {{--        Компонет главного слайдера переписать--}}
     <section class="promo">
       <div
@@ -77,33 +89,50 @@
     <section class="feedback">
       <h2 class="feedback__title">Обратная связь</h2>
 
-      <form method="post" class="feedback__form" action="">
-
+      <form method="POST" class="feedback__form">
+{{--        @csrf--}}
         <div class="feedback__fields">
           <div class="feedback__field feedback__inputs">
             <div class="feedback__name feedback__input">
-              <input type="text" name="name" placeholder="Имя*">
+              <input type="text" name="name" placeholder="Имя*" value="{{ old('name') }}" id="feedback-name-input">
+              <div class="login__validate d-n" id="feedback-name">
+                  <div class="validate">
+                    <p class="validate__message" id="feedback-name-msg"></p>
+                  </div>
+              </div>
             </div>
             <div class="feedback__mail feedback__input">
-              <input type="email" name="email" placeholder="Ваша почта*">
+              <input type="email" name="email" placeholder="Ваша почта*" value="{{ old('email') }}" id="feedback-email-input">
+
+              <div class="login__validate d-n" id="feedback-email">
+                  <div class="validate">
+                    <p class="validate__message" id="feedback-email-msg"></p>
+                  </div>
+              </div>
+
             </div>
           </div>
 
           <div class="feedback__field feedback__text">
-                        <textarea name="message" cols="30" rows="10" placeholder="Ваш вопрос, отзыв или пожелание*">
-                        </textarea>
+            <textarea name="text" cols="30" rows="10" placeholder="Ваш вопрос, отзыв или пожелание*" id="feedback-text-input">
+
+            </textarea>
+
+            <div class="login__validate" id="feedback-text">
+              <div class="validate">
+                <p class="validate__message" id="feedback-text-msg"></p>
+              </div>
+            </div>
+
           </div>
 
-          <input type="checkbox" name="agree_rules" id="agree_rules">
-          <label for="agree_rules" class="agree-label">
+          <input type="checkbox" name="agree" id="agree_rules">
+          <label for="agree_rules" class="agree-label" id="feedback-agree">
             Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и политики конфиденциальности *
           </label>
-
         </div>
 
-        <div class="feedback__submit">
-          <button type="submit" class="button feedback__btn">Отправить</button>
-        </div>
+        <feedback-component :url="'{{ route('feedback') }}'"></feedback-component>
       </form>
     </section>
   </div>

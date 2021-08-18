@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FeedbackRequest;
+use App\Models\Feedback;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -38,5 +40,12 @@ class IndexController extends Controller
 
     public function cart() {
         return $this->returnView('pages.cart');
+    }
+
+    public function feedback(FeedbackRequest $request) {
+        $feedback = new Feedback();
+        $feedback->fill($request->all());
+        $feedback->save();
+        return response()->json(['status' => 'success']);
     }
 }
